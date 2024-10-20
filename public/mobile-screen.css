@@ -1,0 +1,20 @@
+header {
+  flex-direction: column;
+}
+
+.main-list {
+  padding: 10px;
+  font-size: 15px;
+  position: relative;
+}
+.main-link {
+  padding: 4px 15px;
+}
+
+footer.ali{
+  font-size: 13px !important;
+}
+
+main{
+  font-size: 13px !important;
+}

@@ -1,0 +1,86 @@
+[debug] [2024-09-03T20:49:46.839Z] ----------------------------------------------------------------------
+[debug] [2024-09-03T20:49:46.842Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\m\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-09-03T20:49:46.842Z] CLI Version:   13.16.0
+[debug] [2024-09-03T20:49:46.843Z] Platform:      win32
+[debug] [2024-09-03T20:49:46.843Z] Node Version:  v18.18.0
+[debug] [2024-09-03T20:49:46.844Z] Time:          Tue Sep 03 2024 23:49:46 GMT+0300 (Eastern European Summer Time)
+[debug] [2024-09-03T20:49:46.844Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-03T20:49:46.928Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-03T20:49:46.928Z] > authorizing via signed-in user (mersalhussin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Courses\Code\React\Level 2\from level 1
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-09-03T20:49:50.543Z] Using project from CLI flag: courses4arab-b3881
+[debug] [2024-09-03T20:49:50.546Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/courses4arab-b3881 [none]
+[debug] [2024-09-03T20:49:51.154Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/courses4arab-b3881 403
+[debug] [2024-09-03T20:49:51.155Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/courses4arab-b3881 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2024-09-03T20:49:51.156Z] HTTP Error: 403, The caller does not have permission
+[debug] [2024-09-03T20:49:51.341Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\m\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\m\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project courses4arab-b3881. Please make sure the project exists and your account has permission to access it.
+[debug] [2024-09-03T20:55:33.480Z] ----------------------------------------------------------------------
+[debug] [2024-09-03T20:55:33.482Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\m\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-09-03T20:55:33.482Z] CLI Version:   13.16.0
+[debug] [2024-09-03T20:55:33.483Z] Platform:      win32
+[debug] [2024-09-03T20:55:33.483Z] Node Version:  v18.18.0
+[debug] [2024-09-03T20:55:33.484Z] Time:          Tue Sep 03 2024 23:55:33 GMT+0300 (Eastern European Summer Time)
+[debug] [2024-09-03T20:55:33.484Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-03T20:55:33.572Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-03T20:55:33.572Z] > authorizing via signed-in user (mersalhussin@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Courses\Code\React\Level 2\from level 1
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-09-03T20:55:39.232Z] Using project from CLI flag: courses4arab-b3881
+[debug] [2024-09-03T20:55:39.234Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/courses4arab-b3881 [none]
+[debug] [2024-09-03T20:55:39.947Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/courses4arab-b3881 403
+[debug] [2024-09-03T20:55:39.947Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/courses4arab-b3881 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2024-09-03T20:55:39.948Z] HTTP Error: 403, The caller does not have permission
+[debug] [2024-09-03T20:55:40.197Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\m\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\m\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project courses4arab-b3881. Please make sure the project exists and your account has permission to access it.
