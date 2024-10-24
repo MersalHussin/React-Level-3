@@ -1,3 +1,117 @@
-body{
-  background-color: red !important;
+*{
+  font-family: tajawal;
+}
+
+
+/*===============
+ table of Content
+ ===============
+ 1- OPTIONS
+ 2- SHOW ALL TASKS
+ 3- ADD TASK BUTTON
+ */
+
+
+
+.home{
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: calc(100vh - 133px);
+}
+@media( 0px <= width <= 670px){
+  
+  .home{
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: fit-content;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+} 
+/* OPTIONS */
+
+.home .parent-of-btns button{
+   background-color: #3467c2;
+   font-size: 16px;
+   border: none;
+   padding: 7px 12px;
+   border-radius: 5px;
+   color: white;
+   margin-right: 15px;
+   cursor: pointer;
+}
+
+.home select{
+  background-color: rgb(196, 196, 196);
+  border: none;
+  padding: 7px 12px;
+  outline: none;
+  border-radius: 5px;
+}
+
+
+/* SHOW ALL TASKS */
+.home .all-tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.home .all-tasks .task{
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  border: 2px solid white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.home .all-tasks .task:hover{
+  border-left: 8px solid teal ;
+  border-color: teal;
+}
+
+.home .all-tasks .task h2{
+  font-size: 30px;
+}
+.home .all-tasks .task li{
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 2;
+  /* WRONG */
+  text-align: start;
+  list-style: circle;
+  list-style-position: inside;
+
+}
+.home .all-tasks .task .time{
+  text-align: end;
+  font-size: 11px;
+}
+
+
+
+
+/* ADD TASK BUTTON*/
+
+.home .add-task-btn{
+border: none;
+background-color: teal;
+color: white;
+border-radius: 5px;
+width: 150px;
+height: 40px;
+cursor: pointer;
+}
+
+.mt{
+  margin-top: 1em;
+}
+.mtt{
+  margin-top: 2em;
+}
+.mttt{
+  margin-top: 3em;
 }

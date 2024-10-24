@@ -47,20 +47,93 @@ if(loading){
       <Header />
       
 
-      
       {user ? (
         <>
-        <main>
-          {`Hello ${user.displayName}`} 
+        {user.emailVerified && (
+        <main className="home">
+          <h1 style={{display:'fle',}}>{`Hello ${user.displayName}`}</h1>
+          {/* OPTIONS */}
+          <section className="parent-of-btns">
+            <button>Oldest frist</button>
+            <button>Newest frist</button>
+
+            <select id="browesers" name="All Tasks" value="All Tasks">
+              <option value="Chrome">All Tasks</option>
+              <option value="Chrome">Complated </option>
+              <option value="Chrome"> Un complated </option>
+            </select>
+          </section>
+
+
+
+          {/* SHOW all tasks */}
+
+<section className="all-tasks mt">
+  <article dir="auto" className="task">
+    <h2>New Task</h2>
+    <ul>
+      <li>Sub task</li>
+      <li>Sub task 2</li>
+    </ul>
+    <p className="time">
+      a day ago
+    </p>
+  </article>
+  <article dir="auto" className="task">
+    <h2>New Task</h2>
+    <ul>
+      <li>Sub task</li>
+      <li>Sub task 2</li>
+    </ul>
+    <p className="time">
+      a day ago
+    </p>
+  </article>
+  <article dir="auto" className="task">
+    <h2>New Task</h2>
+    <ul>
+      <li>Sub task</li>
+      <li>Sub task 2</li>
+    </ul>
+    <p className="time">
+      a day ago
+    </p>
+  </article>
+  <article dir="auto" className="task">
+    <h2>عمل بطاطس</h2>
+    <ul>
+      <li>تقشير البطاطس</li>
+      <li>تحمير البطاطس</li>
+    </ul>
+    <p className="time">
+      منذ يوم
+    </p>
+  </article>
+
+</section>
+
+
+
+
+          {/* Add new task BTN */}
+          
+            <button className="add-task-btn mt">Add New Task <i className="fa-solid fa-plus"></i></button>
+
+
+
+
+
+
         </main>
-          {!user.emailVerified && (
-            <p>Please verify your email.</p>
-          )}
+        )}
+        {!user.emailVerified && (
+          <p>Please verify your email.</p>
+        )}
         </>
       ) : (
-          <main>
-            Home Page
-          </main>
+        <main>
+        {/* If User Is Active */}
+        </main>
 )}
       
       <Footer />
