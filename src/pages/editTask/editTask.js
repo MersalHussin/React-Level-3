@@ -44,6 +44,7 @@ function EditTask() {
 
         <button className='delete'>
           Delete Task 
+          
         </button>
       </section>
     </div>
