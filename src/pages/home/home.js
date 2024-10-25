@@ -7,7 +7,7 @@ import ThemeContext from "../../context/ThemeContext";
 import './Home.css'
 import { auth } from '../../firebase/config';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -70,6 +70,7 @@ if(loading){
 
 <section className="all-tasks mt">
   <article dir="auto" className="task">
+  <Link to="/edit-task">
     <h2>New Task</h2>
     <ul>
       <li>Sub task</li>
@@ -78,37 +79,9 @@ if(loading){
     <p className="time">
       a day ago
     </p>
+  </Link>
   </article>
-  <article dir="auto" className="task">
-    <h2>New Task</h2>
-    <ul>
-      <li>Sub task</li>
-      <li>Sub task 2</li>
-    </ul>
-    <p className="time">
-      a day ago
-    </p>
-  </article>
-  <article dir="auto" className="task">
-    <h2>New Task</h2>
-    <ul>
-      <li>Sub task</li>
-      <li>Sub task 2</li>
-    </ul>
-    <p className="time">
-      a day ago
-    </p>
-  </article>
-  <article dir="auto" className="task">
-    <h2>عمل بطاطس</h2>
-    <ul>
-      <li>تقشير البطاطس</li>
-      <li>تحمير البطاطس</li>
-    </ul>
-    <p className="time">
-      منذ يوم
-    </p>
-  </article>
+
 
 </section>
 

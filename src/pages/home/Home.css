@@ -31,12 +31,12 @@
 /* OPTIONS */
 
 .home .parent-of-btns button{
-   background-color: #3467c2;
+   background-color: #3fd357;
    font-size: 16px;
    border: none;
    padding: 7px 12px;
    border-radius: 5px;
-   color: white;
+   color:   #01114f;
    margin-right: 15px;
    cursor: pointer;
 }
@@ -69,8 +69,8 @@
   cursor: pointer;
 }
 .home .all-tasks .task:hover{
-  border-left: 8px solid teal ;
-  border-color: teal;
+  border-left: 8px solid #3fd357 ;
+  border-color: #3fd357;
 }
 
 .home .all-tasks .task h2{
@@ -98,14 +98,13 @@
 
 .home .add-task-btn{
 border: none;
-background-color: teal;
-color: white;
+background-color: #3fd357;
+color:   #01114f;
 border-radius: 5px;
 width: 150px;
 height: 40px;
 cursor: pointer;
 }
-
 .mt{
   margin-top: 1em;
 }

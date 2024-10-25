@@ -1,0 +1,147 @@
+/*===============
+ table of Content
+ ===============
+ 1- OPTIONS
+ 2- SHOW ALL TASKS
+ 3- ADD TASK BUTTON
+ */
+
+
+
+
+ .edit-task{
+  min-height: calc(100vh - 143px);
+ }
+
+
+
+ /* Title */
+ .edit-task h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
+ .edit-task h1 .title-input{
+  background-color: transparent;
+  border: 1px solid #3fd357;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  text-align: center;
+  margin: 10px 20px;
+  font-size: 30px;
+  font-weight: bold;
+ } 
+ .edit-task h1 i{
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+ } 
+ .edit-task h1 i:hover{
+  color: #3fd357;
+ } 
+
+
+ /* Sub Task Section */
+
+ .edit-task section.sub-task{
+  border: 1px solid #3fd357;
+  border-radius: 10px ;
+  box-shadow: 0 0 10px #3fd357;
+  /* border: 10px solid #01114f ; */
+  max-width: 700px;
+  padding: 10px;
+  margin: 0 auto;
+
+ }
+
+ 
+ .edit-task section.sub-task .info{
+  justify-content: space-between;
+ }
+ 
+ .edit-task section.sub-task .info div{
+  direction: rtl;
+ }
+ 
+ .edit-task section.sub-task .info div label{
+  margin-left: 10px;
+  font-size: 20px;
+ }
+ 
+ .edit-task section.sub-task .info div input{
+  transform: scale(1.3);
+  border: none;
+  outline: none;
+  accent-color:#3fd357;
+ }
+
+ 
+ .edit-task section.sub-task .tasks ul{
+  padding: 10px;
+  position: relative;
+ }
+
+ .edit-task section.sub-task .tasks ul li{
+  color: #01114f;
+background-color:#3fd357; 
+ padding: 15px 15px 15px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+margin: 15px 20px;
+transition: 0.3s;
+border-left: 10px solid transparent;
+ }
+ .edit-task section.sub-task .tasks ul li:hover{
+  background-color: #ffffff;
+  border-left:10px solid #3fd357 ;
+  transform: scale(1.03);
+ }
+ .edit-task section.sub-task .tasks ul li i{
+  cursor: pointer;
+ }
+ 
+
+
+ /* BTNS */
+ .btns{
+  text-align: center;
+  margin: 50px auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  
+ }
+
+.btns .add-more-btn,
+.btns .delete{
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  transition: 0.3s;
+  border-radius: 5px;
+ }
+ .btns .add-more-btn{
+  color: #01114f;
+  background-color: #3fd357;
+ }
+
+ .btns .delete{
+  color: white;
+  background-color: red;
+ }
+ .btns .add-more-btn:hover{
+  background-color: #2dc246;
+ }
+
+ .btns .delete:hover{
+  background-color: #ca0202;
+ }

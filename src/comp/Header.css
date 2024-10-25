@@ -32,11 +32,12 @@
 
 .main-link {
   padding: 8px 15px;
+  transition: 0.3s;
 }
 
 .main-link:hover,  .main-link.active{
-  color: cyan;
-  box-shadow: 0 0 5px cyan;
+  color: #3fd357;
+  box-shadow: 0 0 5px #3fd357;
   border-radius: 5px;
 }
 
@@ -114,7 +115,7 @@
 }
 
 .Dark .ali{
-  background-color: black !important;
+  background-color: #010c3a !important;
 }
 
 a{

@@ -8,7 +8,10 @@ body {
 }
 
 
-
+::selection{
+  color:   #01114f;
+  background-color: #3fd357;
+}
 
 * {
   margin: 0;
@@ -62,7 +65,7 @@ form input{
 form button{
   padding: 15px;
   width: 300px;
-  background-color: rgb(1, 146, 156);
+  background-color: #3fd357;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -71,7 +74,7 @@ form button{
 }
 
 form button:hover{
-  background-color: rgb(0, 113, 121);
+  background-color: #1fb138;
 }
 
 form label{
@@ -82,15 +85,15 @@ form .acc{
   margin: 10px;
 }
 form  .acc a{
-  color: rgb(1, 146, 156);;
+  color: #3fd357;;
 }
 
 /* light mode */
 .Light form label{
-color: black;
+color: #3fd357;
 }
 .Light form  .acc {
-color: black;
+color: #3fd357;
 }
 
 
@@ -116,6 +119,10 @@ span {
   display: flex;
   align-items: center;
 }
+
+.center {
+  text-align: center;
+ }
 
 main{
   height: calc(100vh - 133px);  
