@@ -145,3 +145,15 @@ border-left: 10px solid transparent;
  .btns .delete:hover{
   background-color: #ca0202;
  }
+
+
+.Light .edit-task .title-input{
+  color: #01114f;
+  border: 1px solid #01114f;
+}
+
+.Light .edit-task section.sub-task{
+  box-shadow: 0 0 10px #c0c0c0;
+  border: 2px solid #3fd357;
+}
+

@@ -5,6 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.Light h1,
+.Light main {
+  color: #01114f !important;
+}
+.Light p {
+  color: #01114f !important;
 }
 
 

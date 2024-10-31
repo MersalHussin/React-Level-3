@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import Header from "../comp/header";
-import Footer from "../comp/Footer";
+import Header from "../../comp/header";
+import Footer from "../../comp/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword , sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../firebase/config";
+import { auth } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 import "./signin.css";
+import Model from "../../shared/Model";
 
 function Signin() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ function Signin() {
   const [hasError, sethasError] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState(false);
   const [Resend, setResend] = useState(false);
-  const [showState, setShowState] = useState('');
   const [user, loading, error] = useAuthState(auth);
   
   useEffect(() => {
@@ -55,6 +55,17 @@ function Signin() {
       });
   }
 
+
+  
+    const [showModel, setshowModel] = useState(false);
+  function closeModel(){
+    setshowModel(false)
+  }
+  function forgotPassword(){
+    setshowModel(true)
+  }
+
+  // From Level 3
   return (
     <>
       <Helmet>
@@ -64,41 +75,12 @@ function Signin() {
 
       <main>
 
-              <form className={`forgot ${showState}`}  >
-              <input
-                placeholder="Email"
-                required
-                type="email"
-                name="femail"
-                onChange={(e) => {
-                  setForgotEmail(e.target.value);
-                }}
-              />
-    
-              <button onClick={(e) => 
-                {
-                  e.preventDefault()
-                  {forgotEmail && 
-                  
 
-                  sendPasswordResetEmail(auth, forgotEmail)
-                  .then(() => {
-                    setResend("Check Your Email Now")
-                  })
-                  .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    setResend(errorCode)
-                  });
-                  }
-                  }}>Resend Password</button>
-              <i onClick={(e) => {
-                setShowState('')
-              }}  className="fa-solid fa-xmark" ></i>
-    
-                {Resend == "Check Your Email Now" ? <p style={{color:"black"}}>{Resend}</p> : <p  style={{color:"black"}}> {Resend}</p>}
-            </form>
-      
+
+      {showModel &&(
+          <Model closeFunc={closeModel}/>
+      )}
+
 
 
 
@@ -133,9 +115,9 @@ function Signin() {
           <p className="acc">
             Don't Have an account <Link to="/sign-up">SingUp</Link>
           </p>
-          <p className="acc">
+          <p className="acc mt">
             <Link onClick={() => {
-              setShowState("show")
+              forgotPassword();
             }}>Forgot Password?</Link>
           </p>
 

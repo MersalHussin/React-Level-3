@@ -2,14 +2,22 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import Header from "../../comp/header";
 import Footer from "../../comp/Footer";
 import { Helmet } from "react-helmet-async";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import './Home.css'
 import { auth } from '../../firebase/config';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from "react-router-dom";
+import Model from "../../shared/Model";
+
+
 
 const Home = () => {
+  
+  const [showModel, setshowModel] = useState(false);
+  function closeModel(){
+    setshowModel(false)
+  }
   const [user, loading, error] = useAuthState(auth);
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
@@ -51,7 +59,7 @@ if(loading){
         <>
         {user.emailVerified && (
         <main className="home">
-          <h1 style={{display:'fle',}}>{`Hello ${user.displayName}`}</h1>
+          <h1 style={{display:'flex',}}>{`Hello ${user.displayName}`}</h1>
           {/* OPTIONS */}
           <section className="parent-of-btns">
             <button>Oldest frist</button>
@@ -90,9 +98,11 @@ if(loading){
 
           {/* Add new task BTN */}
           
-            <button className="add-task-btn mt">Add New Task <i className="fa-solid fa-plus"></i></button>
+            <button className="add-task-btn mt" onClick={()=>{
+            setshowModel(true)
+            }}>Add New Task <i className="fa-solid fa-plus"></i></button>
 
-
+              {showModel &&     <Model closeFunc={closeModel}/>}
 
 
 

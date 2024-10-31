@@ -114,3 +114,15 @@ cursor: pointer;
 .mttt{
   margin-top: 3em;
 }
+
+.Light .home .all-tasks .task h2,
+.Light .home .all-tasks .task a,
+.Light .home .all-tasks .task li{
+  color: #01114f;
+}
+.Light .home .all-tasks .task {
+  border: 2px solid #3fd357;
+}
+.Light .home .all-tasks .task:hover {
+  border-left: 10px solid #3fd357;
+}

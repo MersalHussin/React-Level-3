@@ -9,7 +9,7 @@ import About from "./pages/about";
 import Css from "./pages/css";
 import Javascript from "./pages/javascript";
 import ThemeContext from "./context/ThemeContext";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import P404 from "./pages/P404";
