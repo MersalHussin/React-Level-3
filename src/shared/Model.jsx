@@ -48,7 +48,12 @@ function Model( {closeFunc, children} ) {
     scale: 1;
     // transition: 0.5s;
     /* transform: translateY(-100vh) rotate(360deg); */
+    animation: mymove 0.5s;
   }
+    @keyframes mymove {
+    0% {scale:0;}
+    1000% {scale:1;}
+    }
   
   /* .forgot.show{
     display: flex;
