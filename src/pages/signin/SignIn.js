@@ -77,9 +77,39 @@ function Signin() {
 
 
 
-      {showModel &&(
-          <Model closeFunc={closeModel}/>
-      )}
+
+      {showModel && (
+              <Model closeFunc={closeModel}>
+            <input
+            placeholder="Email"
+            required
+            type="email"
+            name="femail"
+            onChange={(e) => {
+              setForgotEmail(e.target.value);
+            }}
+            />
+  <div>
+
+            <button onClick={(e) => 
+            {
+              e.preventDefault()
+              {forgotEmail && 
+              sendPasswordResetEmail(auth, forgotEmail)
+              .then(() => {
+                setResend("Check Your Email Now")
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setResend(errorCode)
+              });
+              }
+              }}>Resend Password</button>         
+                </div>
+
+        </Model>
+              )}
 
 
 

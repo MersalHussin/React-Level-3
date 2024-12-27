@@ -1,5 +1,5 @@
 import { getAuth, signInWithEmailAndPassword , sendPasswordResetEmail } from "firebase/auth";
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 import Header from "../comp/header";
 import Footer from "../comp/Footer";
 import { Helmet } from "react-helmet-async";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 
-function Model( {closeFunc} ) {
+function Model( {closeFunc, children} ) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [forgotEmail, setForgotEmail] = useState("");
@@ -29,8 +29,10 @@ function Model( {closeFunc} ) {
         <i onClick={(e) => {
           closeFunc(false)
         }}  className="fa-solid fa-xmark" ></i>
-
-          {Resend == "Check Your Email Now" ? <p style={{color:"black"}}>{Resend}</p> : <p  style={{color:"black"}}> {Resend}</p>}
+        <div>
+          {children}
+        </div>
+          {/* {Resend == "Check Your Email Now" ? <p style={{color:"black"}}>{Resend}</p> : <p  style={{color:"black"}}> {Resend}</p>} */}
         </form>
       </div>
   )
