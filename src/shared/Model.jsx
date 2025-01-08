@@ -1,24 +1,9 @@
 import { getAuth, signInWithEmailAndPassword , sendPasswordResetEmail } from "firebase/auth";
 import React, { Children, useState } from "react";
-import Header from "../comp/header";
-import Footer from "../comp/Footer";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { auth } from "../firebase/config";
-import { useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useEffect } from "react";
+
 
 function Model( {closeFunc, children} ) {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [forgotEmail, setForgotEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [hasError, sethasError] = useState(false);
-  const [ErrorMessage, setErrorMessage] = useState(false);
-  const [Resend, setResend] = useState(false);
-  const [user, loading, error] = useAuthState(auth);
-  const [showModel, setshowModel] = useState(false);
 
   return (
 <>

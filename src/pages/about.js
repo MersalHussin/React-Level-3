@@ -10,12 +10,13 @@ import {auth} from '../firebase/config'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 
 const Html = () => {
+  const [array, setArray] = useState(["HTML", "CSS", "JavaScript"]);
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth); 
   useEffect(() => {
@@ -42,7 +43,10 @@ if(user){
     <Header />
     <main>
       About Page
-    </main>
+      {/* {array.map((item,index) => (
+           <h1 key={index}>{item}</h1>
+        ))} */}
+      </main>
     <Footer />
     </>
     )

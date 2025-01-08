@@ -12,6 +12,16 @@ import Model from "../../shared/Model";
 
 const Home = () => {
   const [showModel, setshowModel] = useState(false);
+
+  const [data, setData] = useState([]);
+  const [dataValue, setDataValue] = useState("");
+
+
+const addFunc = () =>{
+  data.push(dataValue)
+  console.log(data)
+  setDataValue("")
+}
   function closeModel() {
     setshowModel(false);
   }
@@ -116,13 +126,25 @@ const Home = () => {
                       required
                       type="text"
                       name="details"
-                      onChange={(e) => {}}
+                      onChange={(eo) => {
+                        setDataValue(eo.target.value)
+                      }}
+                      value={dataValue}
                       />
 
                     <button style={{ width: "fit-content", height: "fit-content", padding: "15px" }} onClick={(e)=>{
                     e.preventDefault()
+                    addFunc()
                   }}>add</button>
                   </div>
+                  
+                  <ul>
+                    {data.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+
+
                   <button onClick={(e)=>{
                     e.preventDefault()
                   }}>Submit</button>

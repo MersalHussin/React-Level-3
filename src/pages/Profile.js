@@ -5,11 +5,12 @@ import { auth } from '../firebase/config';
 import { useAuthState, } from 'react-firebase-hooks/auth';
 import { getAuth, deleteUser } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
+
 
   useEffect(() => {
     if (!user && !loading) {

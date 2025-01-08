@@ -126,3 +126,13 @@ cursor: pointer;
 .Light .home .all-tasks .task:hover {
   border-left: 10px solid #3fd357;
 }
+
+
+
+/* Home Model */
+.home .model li{
+  color: #01114f;
+  font-size: 13px;
+  list-style: circle;
+  list-style-position: inside;
+} 
