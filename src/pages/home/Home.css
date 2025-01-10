@@ -136,3 +136,8 @@ cursor: pointer;
   list-style: circle;
   list-style-position: inside;
 } 
+
+form ul{
+  max-height: 150px;
+  overflow-y: scroll;
+}

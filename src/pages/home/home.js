@@ -5,22 +5,27 @@ import { Helmet } from "react-helmet-async";
 import { useContext, useEffect, useState } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import "./Home.css";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Model from "../../shared/Model";
+import { doc, setDoc } from "firebase/firestore"; 
+
 
 const Home = () => {
   const [showModel, setshowModel] = useState(false);
 
   const [data, setData] = useState([]);
   const [dataValue, setDataValue] = useState("");
+  const [titleName, setTitleName] = useState("");
 
 
 const addFunc = () =>{
-  data.push(dataValue)
-  console.log(data)
-  setDataValue("")
+  {dataValue != "" &&
+    data.push(dataValue)
+    console.log(data)
+    setDataValue("")
+  }
 }
   function closeModel() {
     setshowModel(false);
@@ -115,9 +120,10 @@ const addFunc = () =>{
                     required
                     type="text"
                     name="title"
-                    onClick={(e)=>{
-                      e.preventDefault()
+                    onChange={(e)=>{
+                      setTitleName(e.target.value);
                     }}
+                    value={titleName}
                   />
 
                   <div className="add-details" style={{ display: "flex" }}>
@@ -138,15 +144,30 @@ const addFunc = () =>{
                   }}>add</button>
                   </div>
                   
-                  <ul>
+                  <ul className="list">
                     {data.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
 
 
-                  <button onClick={(e)=>{
+                  <button onClick={ async(e)=>{
                     e.preventDefault()
+
+                    const TaskID = `${new Date().getTime()}`
+
+                    console.log("wating........")
+
+                    await setDoc(doc(db, user.uid, TaskID), {
+                      title: titleName,
+                      dataeils:data,
+                      id:TaskID
+                    });  
+
+                    console.log("Done")
+
+                    setData([])
+                    setTitleName("")
                   }}>Submit</button>
                   </div>
                 </Model>
