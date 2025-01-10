@@ -8,11 +8,8 @@ import "./Home.css";
 import { auth, db } from "../../firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import Model from "../../shared/Model";
-import { doc, setDoc } from "firebase/firestore"; 
-import ReactLoading from 'react-loading';
-
-
+import { doc, setDoc } from "firebase/firestore";
+import HomeModel from "./HomeModel";
 
 const Home = () => {
   const [showModel, setshowModel] = useState(false);
@@ -23,19 +20,8 @@ const Home = () => {
   const [dataValue, setDataValue] = useState("");
   const [titleName, setTitleName] = useState("");
 
-
-const addFunc = () =>{
-  {dataValue != "" &&
-    data.push(dataValue)
-    console.log(data)
-    setDataValue("")
-  }
-}
-  function closeModel() {
-    setshowModel(false);
-  }
   const [user, loading, error] = useAuthState(auth);
-  const { theme } = useContext(ThemeContext);
+  // const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,6 +50,58 @@ const addFunc = () =>{
     );
   }
 
+  // ==============================
+  //      Functions of model
+  // ==============================
+
+  function closeModel() {
+    setshowModel(false);
+  }
+
+  const titleInput = (e) => {
+    setTitleName(e.target.value);
+  };
+  const detailsInput = (e) => {
+    setDataValue(e.target.value);
+  };
+  const submitBTN = async (e) => {
+    e.preventDefault();
+    setshowLoading(true);
+    const TaskID = `${new Date().getTime()}`;
+
+    console.log("wating........");
+
+    await setDoc(doc(db, user.uid, TaskID), {
+      title: titleName,
+      dataeils: data,
+      id: TaskID,
+    });
+
+    console.log("Done");
+
+    setData([]);
+    setTitleName("");
+    setshowLoading(false);
+    {
+      setShowMessage(true);
+    }
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 4000);
+  };
+
+  const addFunc = (e) => {
+    e.preventDefault();
+    {
+      dataValue != "" && data.push(dataValue);
+      console.log(data);
+      setDataValue("");
+    }
+  };
+
+  // ==============================
+  //      Return Code
+  // ==============================
   return (
     <>
       <Helmet>
@@ -116,78 +154,25 @@ const addFunc = () =>{
               </button>
 
               {showModel && (
-                
-                <Model closeFunc={closeModel}>
-                  <div style={{textAlign:"left"}}>
-                  <input
-                    placeholder="Add Title"
-                    required
-                    type="text"
-                    name="title"
-                    onChange={(e)=>{
-                      setTitleName(e.target.value);
-                    }}
-                    value={titleName}
-                  />
-
-                  <div className="add-details" style={{ display: "flex" }}>
-                    <input
-                      placeholder="Add Details"
-                      required
-                      type="text"
-                      name="details"
-                      onChange={(eo) => {
-                        setDataValue(eo.target.value)
-                      }}
-                      value={dataValue}
-                      />
-
-                    <button style={{ width: "fit-content", height: "fit-content", padding: "15px" }} onClick={(e)=>{
-                    e.preventDefault()
-                    addFunc()
-                  }}>add</button>
-                  </div>
-                  
-                  <ul className="list">
-                    {data.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-
-
-                  <button className={`${showLoading && "disabled"}`} onClick={ async(e)=>{
-                    e.preventDefault()
-                    setshowLoading(true)
-                    const TaskID = `${new Date().getTime()}`
-
-                    console.log("wating........")
-
-                    await setDoc(doc(db, user.uid, TaskID), {
-                      title: titleName,
-                      dataeils:data,
-                      id:TaskID
-                    });  
-
-                    console.log("Done")
-
-                    setData([])
-                    setTitleName("")
-                    setshowLoading(false)
-                    {setShowMessage(true)} 
-                    setTimeout(() => {
-                      setShowMessage(false)
-                    }, 4000);
-
-                  }}>
-
-                    {showLoading ? <ReactLoading type={"spin"} color={"white"} height={20} width={20} /> : "Submit"}
-                  </button>
-                  </div>
-                </Model>
+                <HomeModel
+                  closeModel={closeModel}
+                  data={data}
+                  dataValue={dataValue}
+                  titleName={titleName}
+                  titleInput={titleInput}
+                  detailsInput={detailsInput}
+                  addFunc={addFunc}
+                  submitBTN={submitBTN}
+                  showLoading={showLoading}
+                />
               )}
 
-              <p style={{right: showMessage ? "20px" : "-100vw" }} className="taskMessage">
-              <i class="fa-regular fa-circle-check"></i>  Task Add Succesfully
+              <p
+                style={{ right: showMessage ? "20px" : "-100vw" }}
+                className="taskMessage"
+              >
+                <i className="fa-regular fa-circle-check"></i> Task Add
+                Succesfully
               </p>
             </main>
           )}
