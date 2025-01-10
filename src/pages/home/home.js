@@ -92,11 +92,11 @@ const Home = () => {
 
   const addFunc = (e) => {
     e.preventDefault();
-    {
-      dataValue != "" && data.push(dataValue);
-      console.log(data);
+      if(!data.includes(dataValue) && dataValue != ""){
+        dataValue != "" && data.push(dataValue);
+        console.log(data);
+      }
       setDataValue("");
-    }
   };
 
   // ==============================
@@ -120,10 +120,11 @@ const Home = () => {
                 <button>Oldest frist</button>
                 <button>Newest frist</button>
 
-                <select id="browesers" name="All Tasks" value="All Tasks">
-                  <option value="Chrome">All Tasks</option>
-                  <option value="Chrome">Complated </option>
-                  <option value="Chrome"> Un complated </option>
+                <select id="browesers" name="All Tasks" value="All Tasks"
+                  onChange={(e) => {e.preventDefault()}}>
+                <option value="All Tasks">All Tasks</option>
+                <option value="Completed">Completed</option>
+                <option value="Uncompleted">Uncompleted</option>
                 </select>
               </section>
 

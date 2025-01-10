@@ -36,7 +36,7 @@ function HomeModel({
             onChange={(e) => {
               detailsInput(e);
             }}
-            value={dataValue}
+            value= {`${dataValue}`}
           />
 
           <button

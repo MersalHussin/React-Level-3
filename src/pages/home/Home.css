@@ -142,6 +142,20 @@ form ul{
   overflow-y: auto;
 }
 
+/* Scroll */
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  border: 10px solid #cfcfcf;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #3fd357;
+  border-radius: 5px;
+}
+/* Scroll */
+
 /* Task Message */
 
 .home .taskMessage{
