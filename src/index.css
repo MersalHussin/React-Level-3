@@ -80,6 +80,13 @@ form button{
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form button.disabled{
+  background-color: #b1b1b1 !important;
+  cursor: not-allowed;
 }
 
 form button:hover{

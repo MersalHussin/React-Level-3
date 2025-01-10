@@ -10,10 +10,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Model from "../../shared/Model";
 import { doc, setDoc } from "firebase/firestore"; 
+import ReactLoading from 'react-loading';
+
 
 
 const Home = () => {
   const [showModel, setshowModel] = useState(false);
+  const [showLoading, setshowLoading] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const [data, setData] = useState([]);
   const [dataValue, setDataValue] = useState("");
@@ -151,9 +155,9 @@ const addFunc = () =>{
                   </ul>
 
 
-                  <button onClick={ async(e)=>{
+                  <button className={`${showLoading && "disabled"}`} onClick={ async(e)=>{
                     e.preventDefault()
-
+                    setshowLoading(true)
                     const TaskID = `${new Date().getTime()}`
 
                     console.log("wating........")
@@ -168,10 +172,23 @@ const addFunc = () =>{
 
                     setData([])
                     setTitleName("")
-                  }}>Submit</button>
+                    setshowLoading(false)
+                    {setShowMessage(true)} 
+                    setTimeout(() => {
+                      setShowMessage(false)
+                    }, 4000);
+
+                  }}>
+
+                    {showLoading ? <ReactLoading type={"spin"} color={"white"} height={20} width={20} /> : "Submit"}
+                  </button>
                   </div>
                 </Model>
               )}
+
+              <p style={{right: showMessage ? "20px" : "-100vw" }} className="taskMessage">
+              <i class="fa-regular fa-circle-check"></i>  Task Add Succesfully
+              </p>
             </main>
           )}
           {!user.emailVerified && <p>Please verify your email.</p>}

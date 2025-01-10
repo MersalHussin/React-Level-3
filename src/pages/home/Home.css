@@ -139,5 +139,25 @@ cursor: pointer;
 
 form ul{
   max-height: 150px;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+/* Task Message */
+
+.home .taskMessage{
+  color: #01114f;
+  background-color: white;
+  font-size: 13px;
+  padding: 5px 10px ;
+  border-radius: 5px;
+width: 200px;
+position: fixed;
+top: 150px;
+right: 2vw;
+transition: 1s;
+z-index: 9999;
+}
+.home .taskMessage .fa-circle-check{
+  color: #3fd357;
+  margin: 5px ;
 }
