@@ -27,7 +27,7 @@ function TasksSection({user}) {
               <section className="all-tasks mt">
                  {value.docs.map((item) => (
                    <article key={item.id} dir="auto" className="task">
-                  <Link to={`/edit-task`}>
+                  <Link to={`/edit-task/${item.id}`}>
                     <h2>{item.data().title}<span>({item.data().dataeils.length}) </span></h2>
                     <ul>
                         {item.data().dataeils.map((dateailsItem,  index) => (

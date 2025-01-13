@@ -72,6 +72,7 @@ const Home = () => {
     console.log("wating........");
 
     await setDoc(doc(db, user.uid, TaskID), {
+      complated: false,
       title: titleName,
       dataeils: data,
       id: TaskID,

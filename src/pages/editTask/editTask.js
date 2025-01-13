@@ -2,56 +2,44 @@ import React from 'react'
 import './editTask.css'
 import Header from '../../comp/header'
 import Footer from '../../comp/Footer'
-
+import { auth } from "../../firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import TitleSection from './1- TitleSection';
+import SubTaskSection from './2- SubTaskSection';
+import BTNSection from './3- BTNSection';
+import { useParams } from 'react-router-dom';
+import AllSections from './AllSections';
 function EditTask() {
-  return (
-    <>
-    <Header/>
-    <div className='edit-task'>
+  const [user, loading, error] = useAuthState(auth);
+  let {stringId} = useParams()
 
-      {/* TITLE */}
-      <section  className='title center'> 
-        <h1>
-          <input className='title-input' type="text" value={"Mersal Hussin"}/>
-          <i className='fa-regular fa-pen-to-square'></i>
-        </h1>
-      </section>
-      {/* SUB-TASKS SECTION */}
-      <section className='sub-task'>
-        <div className='info flex'>
-          <p>Created: 6 days ago</p>
-          <div>
-            <label htmlFor="Complated">Complated</label>
-            <input type="checkbox" name="Complated" id="Complated" />
-          </div>
-        </div>
 
-        <div className='tasks'>
-            <ul className='tasks-list'>
-                <li>Please help me  <i className='fa-solid fa-trash'></i></li>
-                <li>Please help me  <i className='fa-solid fa-trash'></i></li>
-                <li>Please help me  <i className='fa-solid fa-trash'></i></li>
-                <li>Please help me  <i className='fa-solid fa-trash'></i></li>
-            </ul>
-        </div>
+  if(error){
+    return <h1>Error Try Again</h1>
+  }
+  if(loading){
+    return <h1>Loading</h1>
+  }
 
-      </section>
-      {/* Add-MORE BTN & DELETE BTN */}
-      <section className='btns flex '>
-        <button className='add-more-btn'>
-        Add More <i className='fa-solid fa-plus'></i>
-        </button>
 
-        <button className='delete'>
-          Delete Task 
-          
-        </button>
-      </section>
-    </div>
-    <Footer/>
-    </>
-
-  )
+  if(user){
+    return (
+      <>
+      <Header/>
+      <div className='edit-task'>
+        <AllSections  user={user}  stringId={stringId}/>
+        {/* TITLE */}
+      {/* <TitleSection user={user}  stringId={stringId}/> */}
+        {/* SUB-TASKS SECTION */}
+      {/* <SubTaskSection user={user} stringId={stringId}/> */}
+        {/* Add-MORE BTN & DELETE BTN */}
+      {/* <BTNSection user={user} stringId={stringId}/> */}
+      </div>
+      <Footer/>
+      </>
+  
+    )
+  }
 }
 
 export default EditTask

@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/edit-task",
+    path: "/edit-task/:stringId",
     element: <EditTask />,
   },
 ]);
