@@ -2,14 +2,14 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import Header from "../../comp/header";
 import Footer from "../../comp/Footer";
 import { Helmet } from "react-helmet-async";
-import { useContext, useEffect, useState } from "react";
-import ThemeContext from "../../context/ThemeContext";
+import {  useEffect, useState } from "react";
 import "./Home.css";
 import { auth, db } from "../../firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import HomeModel from "./HomeModel";
+import TasksSection from "./TasksSection";
 
 const Home = () => {
   const [showModel, setshowModel] = useState(false);
@@ -20,7 +20,7 @@ const Home = () => {
   const [dataValue, setDataValue] = useState("");
   const [titleName, setTitleName] = useState("");
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading, ] = useAuthState(auth);
   // const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
@@ -130,18 +130,7 @@ const Home = () => {
 
               {/* SHOW all tasks */}
 
-              <section className="all-tasks mt">
-                <article dir="auto" className="task">
-                  <Link to="/edit-task">
-                    <h2>New Task</h2>
-                    <ul>
-                      <li>Sub task</li>
-                      <li>Sub task 2</li>
-                    </ul>
-                    <p className="time">a day ago</p>
-                  </Link>
-                </article>
-              </section>
+            <TasksSection user={user}/>
 
               {/* Add new task BTN */}
 

@@ -67,6 +67,8 @@
   border-radius: 5px;
   transition: 0.3s;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 .home .all-tasks .task:hover{
   border-left: 8px solid #3fd357 ;
@@ -75,6 +77,11 @@
 
 .home .all-tasks .task h2{
   font-size: 30px;
+}
+.home .all-tasks .task h2 span{
+  font-size: 15px;
+  animation: none;
+  color: #3fd357;
 }
 .home .all-tasks .task li{
   margin-top: 10px;
@@ -89,6 +96,9 @@
 .home .all-tasks .task .time{
   text-align: end;
   font-size: 11px;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
 }
 
 
